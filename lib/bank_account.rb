@@ -14,6 +14,10 @@ class Bankaccount
     return @statement
   end
 
+  def display_balance
+    puts "Your current balance is £#{@balance}."
+  end
+
   def deposit(amount, date)
     @statement.push(@deposit_amount = amount)
     @statement.push(@date = date)
@@ -26,3 +30,4 @@ class Bankaccount
     @statement.push(@balance -= amount)
   end
 end 
+
