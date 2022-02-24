@@ -25,9 +25,13 @@ class Bankaccount
   end
 
   def withdraw(amount, date)
-    @statement.push(@withdrawal_amount = amount)
-    @statement.push(@date = date)
-    @statement.push(@balance -= amount)
+    if amount <= @balance
+      @statement.push(@withdrawal_amount = amount)
+      @statement.push(@date = date)
+      @statement.push(@balance -= amount)
+    else 
+      raise "Insufficent funds, current balance: £#{@balance}."
+    end
   end
 end 
 
